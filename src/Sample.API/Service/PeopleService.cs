@@ -2,9 +2,9 @@
 
 public class PeopleService : IPeopleService
 {
-    private readonly IUnitOfWork unitOfWork;
+    private readonly IUnitOfWork<PersonEntity, int> unitOfWork;
 
-    public PeopleService(IUnitOfWork unitOfWork)
+    public PeopleService(IUnitOfWork<PersonEntity, int> unitOfWork)
     {
         this.unitOfWork = unitOfWork;
     }

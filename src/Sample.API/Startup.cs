@@ -40,14 +40,12 @@ public class Startup
             });
         }
 
-        services
-            .AddScoped<DbContext, DataDbContext>()
-            .AddScoped<IUnitOfWork, UnitOfWork<DbContext>>()
-            .AddScoped<IDatabaseRepository, DatabaseRepository<DbContext>>()
-            .AddScoped<ICommandRepository, CommandRepository<DbContext>>();
+        services.AddScoped<DbContext, DataDbContext>();
+        services.AddScoped(typeof(IUnitOfWork<,>), typeof(UnitOfWork<,>));
+        services.AddScoped(typeof(IDatabaseRepository<,>), typeof(DatabaseRepository<,>));
+        services.AddScoped(typeof(ICommandRepository<,>), typeof(CommandRepository<,>));
 
-        services
-            .AddTransient<IPeopleService, PeopleService>();
+        services.AddTransient<IPeopleService, PeopleService>();
 
         services.AddMediatR(typeof(Startup).Assembly);
         services.AddAutoMapper(typeof(PersonMapperProfile).Assembly);
