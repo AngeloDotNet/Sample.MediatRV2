@@ -1,4 +1,4 @@
-﻿namespace MediatR.Library.Entity;
+﻿namespace Sample.API.Entity;
 
 public class PersonEntity : IEntity<int>
 {

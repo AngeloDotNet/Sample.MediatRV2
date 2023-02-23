@@ -1,6 +1,4 @@
-﻿using MediatR.Library.Entity;
-
-namespace Sample.API.Mappers;
+﻿namespace Sample.API.Mappers;
 
 public class PersonMapperProfile : Profile
 {

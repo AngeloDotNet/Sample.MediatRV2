@@ -40,14 +40,20 @@ public class Startup
             });
         }
 
-        services.AddScoped<DbContext, DataDbContext>();
-        services.AddScoped(typeof(IUnitOfWork<,>), typeof(UnitOfWork<,>));
-        services.AddScoped(typeof(IDatabaseRepository<,>), typeof(DatabaseRepository<,>));
-        services.AddScoped(typeof(ICommandRepository<,>), typeof(CommandRepository<,>));
+        //services.AddScoped<DbContext, DataDbContext>();
+        //services.AddScoped(typeof(IUnitOfWork<,>), typeof(UnitOfWork<,>));
+        //services.AddScoped(typeof(IDatabaseRepository<,>), typeof(DatabaseRepository<,>));
+        //services.AddScoped(typeof(ICommandRepository<,>), typeof(CommandRepository<,>));
+
+        services
+            .AddScoped<DbContext, DataDbContext>()
+            .AddScoped(typeof(IUnitOfWork<,>), typeof(UnitOfWork<,>))
+            .AddScoped(typeof(IDatabaseRepository<,>), typeof(DatabaseRepository<,>))
+            .AddScoped(typeof(ICommandRepository<,>), typeof(CommandRepository<,>));
 
         services.AddTransient<IPeopleService, PeopleService>();
 
-        services.AddMediatR(typeof(Startup).Assembly);
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(CreatePersonHandler).Assembly));
         services.AddAutoMapper(typeof(PersonMapperProfile).Assembly);
     }
 
