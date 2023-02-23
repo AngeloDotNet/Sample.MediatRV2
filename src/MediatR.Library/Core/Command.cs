@@ -1,7 +1,4 @@
-﻿using MediatR.Library.Core.Interfaces;
-using Microsoft.EntityFrameworkCore;
-
-namespace MediatR.Library.Core;
+﻿namespace MediatR.Library.Core;
 
 public class Command<T> : ICommand<T> where T : class
 {

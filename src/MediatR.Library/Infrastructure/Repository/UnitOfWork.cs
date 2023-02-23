@@ -1,7 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Sample.API.Infrastructure.Interfaces;
-
-namespace MediatR.Library.Infrastructure.Repository;
+﻿namespace MediatR.Library.Infrastructure.Repository;
 
 public class UnitOfWork<TContext> : IUnitOfWork where TContext : DbContext
 {

@@ -1,7 +1,4 @@
-﻿using MediatR.Library.Core.Interfaces;
-using Microsoft.EntityFrameworkCore;
-
-namespace MediatR.Library.Core;
+﻿namespace MediatR.Library.Core;
 
 public class Database<T> : IDatabase<T> where T : class
 {
