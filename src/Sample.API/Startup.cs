@@ -1,4 +1,6 @@
-﻿namespace Sample.API;
+﻿using MediatR.Library.Infrastructure.Repository;
+
+namespace Sample.API;
 
 public class Startup
 {
