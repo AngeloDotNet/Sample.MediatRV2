@@ -5,9 +5,7 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.API", "src\Sample.API\Sample.API.csproj", "{BE9BF35D-0048-4585-A61F-D323AA7FAE7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediatR.Library", "src\MediatR.Library\MediatR.Library.csproj", "{708ECAE0-6A22-4D8C-8ADF-7F71B14B2557}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediatR.Shared", "src\MediatR.Shared\MediatR.Shared.csproj", "{8F4BF754-5DC4-4CB5-BA27-1C5455C197F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediatR.Library", "src\MediatR.Library\MediatR.Library.csproj", "{708ECAE0-6A22-4D8C-8ADF-7F71B14B2557}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +21,6 @@ Global
 		{708ECAE0-6A22-4D8C-8ADF-7F71B14B2557}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{708ECAE0-6A22-4D8C-8ADF-7F71B14B2557}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{708ECAE0-6A22-4D8C-8ADF-7F71B14B2557}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8F4BF754-5DC4-4CB5-BA27-1C5455C197F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8F4BF754-5DC4-4CB5-BA27-1C5455C197F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8F4BF754-5DC4-4CB5-BA27-1C5455C197F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8F4BF754-5DC4-4CB5-BA27-1C5455C197F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
