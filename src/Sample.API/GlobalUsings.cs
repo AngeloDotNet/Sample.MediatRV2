@@ -1,5 +1,6 @@
 ﻿global using AutoMapper;
 global using MediatR;
+global using MediatR.Library.Infrastructure.Repository;
 global using MediatR.Shared.Entity;
 global using Microsoft.AspNetCore.Mvc;
 global using Microsoft.EntityFrameworkCore;
