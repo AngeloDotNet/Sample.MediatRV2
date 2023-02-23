@@ -15,8 +15,4 @@
 	</PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\MediatR.Shared\MediatR.Shared.csproj" />
-  </ItemGroup>
-
 </Project>

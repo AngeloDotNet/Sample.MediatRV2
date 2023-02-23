@@ -1,8 +1,8 @@
 ﻿namespace MediatR.Library.Core.Interfaces;
 
-public interface ICommand<T> where T : class
+public interface ICommand<TEntity, TKey> where TEntity : class, IEntity<TKey>, new()
 {
-    Task CreateAsync(T entity);
-    Task UpdateAsync(T entity);
-    Task DeleteAsync(T entity);
+    Task CreateAsync(TEntity entity);
+    Task UpdateAsync(TEntity entity);
+    Task DeleteAsync(TEntity entity);
 }

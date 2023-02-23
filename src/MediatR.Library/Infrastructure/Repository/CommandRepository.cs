@@ -1,8 +1,9 @@
 ﻿namespace MediatR.Library.Infrastructure.Repository;
 
-public class CommandRepository<TContext> : Command<PersonEntity>, ICommandRepository where TContext : DbContext
+public class CommandRepository<TEntity, TKey> : Command<TEntity, TKey>, ICommandRepository<TEntity, TKey>
+    where TEntity : class, IEntity<TKey>, new()
 {
-    public CommandRepository(TContext dbContext) : base(dbContext)
+    public CommandRepository(DbContext dbContext) : base(dbContext)
     {
     }
 }

@@ -1,8 +1,9 @@
 ﻿namespace MediatR.Library.Infrastructure.Repository;
 
-public class DatabaseRepository<TContext> : Database<PersonEntity>, IDatabaseRepository where TContext : DbContext
+public class DatabaseRepository<TEntity, TKey> : Database<TEntity, TKey>, IDatabaseRepository<TEntity, TKey>
+    where TEntity : class, IEntity<TKey>, new()
 {
-    public DatabaseRepository(TContext dbContext) : base(dbContext)
+    public DatabaseRepository(DbContext dbContext) : base(dbContext)
     {
     }
 }

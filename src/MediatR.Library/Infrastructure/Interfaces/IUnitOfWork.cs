@@ -1,7 +1,7 @@
 ﻿namespace Sample.API.Infrastructure.Interfaces;
 
-public interface IUnitOfWork : IDisposable
+public interface IUnitOfWork<TEntity, TKey> : IDisposable where TEntity : class, IEntity<TKey>, new()
 {
-    IDatabaseRepository ReadOnly { get; }
-    ICommandRepository Command { get; }
+    IDatabaseRepository<TEntity, TKey> ReadOnly { get; }
+    ICommandRepository<TEntity, TKey> Command { get; }
 }

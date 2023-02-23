@@ -1,14 +1,17 @@
 ﻿namespace MediatR.Library.Infrastructure.Repository;
 
-public class UnitOfWork<TContext> : IUnitOfWork where TContext : DbContext
+public class UnitOfWork<TEntity, TKey> : IUnitOfWork<TEntity, TKey> where TEntity : class, IEntity<TKey>, new()
 {
-    private readonly TContext dbContext;
-    public IDatabaseRepository ReadOnly { get; }
-    public ICommandRepository Command { get; }
+    public DbContext DbContext { get; }
 
-    public UnitOfWork(TContext dbContext, IDatabaseRepository databaseRepository, ICommandRepository commandRepository)
+    public IDatabaseRepository<TEntity, TKey> ReadOnly { get; }
+    public ICommandRepository<TEntity, TKey> Command { get; }
+
+    public UnitOfWork(DbContext dbContext,
+        IDatabaseRepository<TEntity, TKey> databaseRepository,
+        ICommandRepository<TEntity, TKey> commandRepository)
     {
-        this.dbContext = dbContext;
+        this.DbContext = dbContext;
 
         ReadOnly = databaseRepository;
         Command = commandRepository;
@@ -24,7 +27,7 @@ public class UnitOfWork<TContext> : IUnitOfWork where TContext : DbContext
     {
         if (disposing)
         {
-            dbContext.Dispose();
+            DbContext.Dispose();
         }
     }
 }

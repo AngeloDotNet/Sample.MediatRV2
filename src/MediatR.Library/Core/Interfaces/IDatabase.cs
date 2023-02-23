@@ -1,8 +1,7 @@
 ﻿namespace MediatR.Library.Core.Interfaces;
 
-public interface IDatabase<T> where T : class
+public interface IDatabase<TEntity, TKey> where TEntity : class, IEntity<TKey>, new()
 {
-    Task<List<T>> GetAllAsync();
-    Task<T> GetByIdAsync(int id);
-    Task<T> GetByIdGuidAsync(Guid id);
+    Task<List<TEntity>> GetAllAsync();
+    Task<TEntity> GetByIdAsync(TKey id);
 }

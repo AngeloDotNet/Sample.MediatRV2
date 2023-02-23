@@ -1,6 +1,6 @@
 ﻿namespace MediatR.Library.Core;
 
-public class Command<T> : ICommand<T> where T : class
+public class Command<TEntity, TKey> : ICommand<TEntity, TKey> where TEntity : class, IEntity<TKey>, new()
 {
     public DbContext DbContext { get; }
 
@@ -9,27 +9,27 @@ public class Command<T> : ICommand<T> where T : class
         DbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
     }
 
-    public async Task CreateAsync(T entity)
+    public async Task CreateAsync(TEntity entity)
     {
-        DbContext.Set<T>().Add(entity);
+        DbContext.Set<TEntity>().Add(entity);
 
         await DbContext.SaveChangesAsync();
 
         DbContext.Entry(entity).State = EntityState.Detached;
     }
 
-    public async Task UpdateAsync(T entity)
+    public async Task UpdateAsync(TEntity entity)
     {
-        DbContext.Set<T>().Update(entity);
+        DbContext.Set<TEntity>().Update(entity);
 
         await DbContext.SaveChangesAsync();
 
         DbContext.Entry(entity).State = EntityState.Detached;
     }
 
-    public async Task DeleteAsync(T entity)
+    public async Task DeleteAsync(TEntity entity)
     {
-        DbContext.Set<T>().Remove(entity);
+        DbContext.Set<TEntity>().Remove(entity);
 
         await DbContext.SaveChangesAsync();
     }

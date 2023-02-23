@@ -1,6 +1,5 @@
 ﻿namespace Sample.API.Infrastructure.Interfaces;
 
-public interface IDatabaseRepository : IDatabase<PersonEntity>
+public interface IDatabaseRepository<TEntity, TKey> : IDatabase<TEntity, TKey> where TEntity : class, IEntity<TKey>, new()
 {
-    // Add your custom code here
 }
