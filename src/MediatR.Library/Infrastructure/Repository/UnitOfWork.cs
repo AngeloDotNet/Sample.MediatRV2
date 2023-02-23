@@ -3,15 +3,15 @@
 public class UnitOfWork<TContext> : IUnitOfWork where TContext : DbContext
 {
     private readonly TContext dbContext;
-    public IDatabaseRepository DatabaseRepository { get; }
-    public ICommandRepository CommandRepository { get; }
+    public IDatabaseRepository ReadOnly { get; }
+    public ICommandRepository Command { get; }
 
     public UnitOfWork(TContext dbContext, IDatabaseRepository databaseRepository, ICommandRepository commandRepository)
     {
         this.dbContext = dbContext;
 
-        DatabaseRepository = databaseRepository;
-        CommandRepository = commandRepository;
+        ReadOnly = databaseRepository;
+        Command = commandRepository;
     }
 
     public void Dispose()

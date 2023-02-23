@@ -2,6 +2,6 @@
 
 public interface IUnitOfWork : IDisposable
 {
-    IDatabaseRepository DatabaseRepository { get; }
-    ICommandRepository CommandRepository { get; }
+    IDatabaseRepository ReadOnly { get; }
+    ICommandRepository Command { get; }
 }
