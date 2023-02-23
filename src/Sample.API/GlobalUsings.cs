@@ -1,0 +1,16 @@
+﻿global using AutoMapper;
+global using Data.EFCore.CustomV1;
+global using Data.EFCore.CustomV1.Interfaces;
+global using MediatR;
+global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.OpenApi.Models;
+global using Sample.API.Entity;
+global using Sample.API.Infrastructure;
+global using Sample.API.Infrastructure.Interfaces;
+global using Sample.API.Infrastructure.Repository;
+global using Sample.API.Mappers;
+global using Sample.API.MediatR;
+global using Sample.API.Models;
+global using Sample.API.Service;
+global using System.Net.Mime;
