@@ -5,23 +5,21 @@
 [Produces(MediaTypeNames.Application.Json)]
 public class PeopleController : ControllerBase
 {
-    private readonly ILogger<PeopleController> logger;
     private readonly IMediator mediator;
 
-    public PeopleController(ILogger<PeopleController> logger, IMediator mediator)
+    public PeopleController(IMediator mediator)
     {
-        this.logger = logger;
         this.mediator = mediator;
     }
 
-    [HttpGet("people")]
+    [HttpGet]
     public async Task<IActionResult> GetPeople()
     {
         var people = await mediator.Send(new GetPeopleListQuery());
         return Ok(people);
     }
 
-    [HttpGet("person/{id}/{userId}")]
+    [HttpGet("{id}/{userId}")]
     public async Task<IActionResult> GetPerson(int id, Guid userId)
     {
         var person = await mediator.Send(new GetPersonQuery(id, userId));
@@ -34,21 +32,21 @@ public class PeopleController : ControllerBase
         return Ok(person);
     }
 
-    [HttpPost("person")]
+    [HttpPost]
     public async Task<IActionResult> CreatePerson([FromBody] PersonCreateInputModel person)
     {
         var result = await mediator.Send(new CreatePersonCommand(person));
         return Ok(result);
     }
 
-    [HttpPut("person")]
+    [HttpPut]
     public async Task<IActionResult> UpdatePerson([FromBody] PersonUpdateInputModel person)
     {
         var result = await mediator.Send(new UpdatePersonCommand(person));
         return Ok(result);
     }
 
-    [HttpDelete("person/{id}")]
+    [HttpDelete("{id}")]
     public async Task<IActionResult> DeletePerson(int id)
     {
         var result = await mediator.Send(new DeletePersonCommand(id));

@@ -1,11 +1,9 @@
 ﻿global using AutoMapper;
-global using EFCoreGeneric.Core.Interfaces;
-global using EFCoreGeneric.Infrastructure.Interfaces;
-global using EFCoreGeneric.Infrastructure.Repository;
 global using MediatR;
 global using Microsoft.AspNetCore.Mvc;
 global using Microsoft.EntityFrameworkCore;
-global using Microsoft.OpenApi.Models;
+global using NET6CustomLibrary.EFCore.Core.Interfaces;
+global using NET6CustomLibrary.EFCore.Infrastructure.Interfaces;
 global using Sample.API.Entity;
 global using Sample.API.Handlers;
 global using Sample.API.Infrastructure;
