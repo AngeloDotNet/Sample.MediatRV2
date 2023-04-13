@@ -1,7 +1,4 @@
-﻿using NET6CustomLibrary.Extensions;
-using NET6CustomLibrary.Swagger;
-
-namespace Sample.API;
+﻿namespace Sample.API;
 
 public class Startup
 {
@@ -14,16 +11,8 @@ public class Startup
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddControllers();
-        services.AddEndpointsApiExplorer();
 
-        //services.AddSwaggerGen(config =>
-        //{
-        //    config.SwaggerDoc("v1", new OpenApiInfo
-        //    {
-        //        Title = "Sample API",
-        //        Version = "v1"
-        //    });
-        //});
+        services.AddEndpointsApiExplorer();
         services.AddSwaggerGenConfig("Sample API", "v1", string.Empty);
 
         var databaseInMemory = Configuration.GetSection("DatabaseInMemory").GetValue<bool>("enabled");
@@ -44,17 +33,6 @@ public class Startup
             });
         }
 
-        //services.AddScoped<DbContext, DataDbContext>();
-        //services.AddScoped(typeof(IUnitOfWork<,>), typeof(UnitOfWork<,>));
-        //services.AddScoped(typeof(IDatabaseRepository<,>), typeof(DatabaseRepository<,>));
-        //services.AddScoped(typeof(ICommandRepository<,>), typeof(CommandRepository<,>));
-
-        //services
-        //    .AddScoped<DbContext, DataDbContext>()
-        //    .AddScoped(typeof(IUnitOfWork<,>), typeof(UnitOfWork<,>))
-        //    .AddScoped(typeof(IDatabaseRepository<,>), typeof(DatabaseRepository<,>))
-        //    .AddScoped(typeof(ICommandRepository<,>), typeof(CommandRepository<,>));
-
         services.AddDbContextGenericsMethods<DataDbContext>();
         services.AddTransient<IPeopleService, PeopleService>();
 
@@ -70,11 +48,6 @@ public class Startup
 
         if (env.IsDevelopment())
         {
-            //app.UseSwagger();
-            //app.UseSwaggerUI(options =>
-            //{
-            //    options.SwaggerEndpoint("/swagger/v1/swagger.json", "Sample API");
-            //});
             app.AddUseSwaggerUI("Sample API v1");
         }
 
