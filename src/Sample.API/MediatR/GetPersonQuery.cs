@@ -1,6 +1,6 @@
 ﻿namespace Sample.API.MediatR;
 
-public class GetPersonQuery : IRequest<PersonEntity>
+public class GetPersonQuery : NET6CustomLibrary.MediatR.IQuery<PersonEntity>
 {
     public int Id { get; set; }
     public Guid UserId { get; set; }

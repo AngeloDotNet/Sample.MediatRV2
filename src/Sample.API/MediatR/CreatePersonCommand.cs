@@ -1,6 +1,6 @@
 ﻿namespace Sample.API.MediatR;
 
-public class CreatePersonCommand : IRequest<PersonEntity>
+public class CreatePersonCommand : NET6CustomLibrary.MediatR.ICommand<PersonEntity>
 {
     public Guid UserId { get; set; }
     public string Cognome { get; set; }

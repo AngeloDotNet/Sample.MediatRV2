@@ -1,6 +1,6 @@
 ﻿namespace Sample.API.MediatR;
 
-public class UpdatePersonCommand : IRequest<PersonEntity>
+public class UpdatePersonCommand : NET6CustomLibrary.MediatR.ICommand<PersonEntity>
 {
     public int Id { get; set; }
     public Guid UserId { get; set; }
