@@ -1,10 +1,10 @@
 ﻿global using AutoMapper;
+global using CustomLibrary.EFCore.EFCore.Core.Interfaces;
+global using CustomLibrary.EFCore.EFCore.Infrastructure.Interfaces;
+global using CustomLibrary.EFCore.Extensions;
 global using MediatR;
 global using Microsoft.AspNetCore.Mvc;
 global using Microsoft.EntityFrameworkCore;
-global using NET6CustomLibrary.EFCore.Core.Interfaces;
-global using NET6CustomLibrary.EFCore.Infrastructure.Interfaces;
-global using NET6CustomLibrary.Extensions;
 global using NET6CustomLibrary.Swagger;
 global using Sample.API.Entity;
 global using Sample.API.Handlers;

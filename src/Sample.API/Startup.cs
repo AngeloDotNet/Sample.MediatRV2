@@ -27,13 +27,10 @@ public class Startup
         }
         else
         {
-            services.AddDbContextPool<DataDbContext>(optionsBuilder =>
-            {
-                optionsBuilder.UseSqlite(connectionString);
-            });
+            services.AddDbContextForSQLite<DataDbContext>(connectionString, string.Empty);
         }
 
-        services.AddDbContextGenericsMethods<DataDbContext>();
+        services.AddDbContextServicesGenerics<DataDbContext>();
         services.AddTransient<IPeopleService, PeopleService>();
 
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(CreatePersonHandler).Assembly));
@@ -48,7 +45,7 @@ public class Startup
 
         if (env.IsDevelopment())
         {
-            app.AddUseSwaggerUI("Sample API v1");
+            app.UseSwaggerUI("Sample API v1");
         }
 
         app.UseRouting();
