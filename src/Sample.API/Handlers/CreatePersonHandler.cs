@@ -1,6 +1,6 @@
 ﻿namespace Sample.API.Handlers;
 
-public class CreatePersonHandler : IRequestHandler<CreatePersonCommand, PersonEntity>
+public class CreatePersonHandler : NET6CustomLibrary.MediatR.ICommandHandler<CreatePersonCommand, PersonEntity>
 {
     private readonly ILogger<CreatePersonHandler> logger;
     private readonly IPeopleService peopleService;

@@ -1,6 +1,6 @@
 ﻿namespace Sample.API.Handlers;
 
-public class UpdatePersonHandler : IRequestHandler<UpdatePersonCommand, PersonEntity>
+public class UpdatePersonHandler : NET6CustomLibrary.MediatR.ICommandHandler<UpdatePersonCommand, PersonEntity>
 {
     private readonly ILogger<UpdatePersonHandler> logger;
     private readonly IPeopleService peopleService;

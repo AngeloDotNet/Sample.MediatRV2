@@ -1,6 +1,6 @@
 ﻿namespace Sample.API.Handlers;
 
-public class GetPersonHandler : IRequestHandler<GetPersonQuery, PersonEntity>
+public class GetPersonHandler : NET6CustomLibrary.MediatR.IQueryHandler<GetPersonQuery, PersonEntity>
 {
     private readonly ILogger<GetPersonHandler> logger;
     private readonly IPeopleService peopleService;

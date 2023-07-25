@@ -1,6 +1,6 @@
 ﻿namespace Sample.API.Handlers;
 
-public class DeletePersonHandler : IRequestHandler<DeletePersonCommand, bool>
+public class DeletePersonHandler : NET6CustomLibrary.MediatR.ICommandHandler<DeletePersonCommand, bool>
 {
     private readonly ILogger<DeletePersonHandler> logger;
     private readonly IPeopleService peopleService;
